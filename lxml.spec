@@ -4,7 +4,7 @@
 #
 Name     : lxml
 Version  : 3.5.0
-Release  : 16
+Release  : 17
 URL      : https://pypi.python.org/packages/source/l/lxml/lxml-3.5.0.tar.gz
 Source0  : https://pypi.python.org/packages/source/l/lxml/lxml-3.5.0.tar.gz
 Summary  : Powerful and Pythonic XML processing library combining libxml2/libxslt with the ElementTree API.
