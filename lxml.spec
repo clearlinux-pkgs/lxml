@@ -4,7 +4,7 @@
 #
 Name     : lxml
 Version  : 3.6.0
-Release  : 19
+Release  : 20
 URL      : https://pypi.python.org/packages/source/l/lxml/lxml-3.6.0.tar.gz
 Source0  : https://pypi.python.org/packages/source/l/lxml/lxml-3.6.0.tar.gz
 Summary  : Powerful and Pythonic XML processing library combining libxml2/libxslt with the ElementTree API.
@@ -17,6 +17,7 @@ BuildRequires : pip
 BuildRequires : python-dev
 BuildRequires : python3-dev
 BuildRequires : setuptools
+BuildRequires : zlib-dev
 
 %description
 What is lxml?
