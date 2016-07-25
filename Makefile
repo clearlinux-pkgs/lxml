@@ -1,5 +1,5 @@
 PKG_NAME := lxml
-URL := https://pypi.python.org/packages/source/l/lxml/lxml-3.6.0.tar.gz
+URL := http://pypi.debian.net/lxml/lxml-3.6.1.tar.gz
 ARCHIVES :=
 
 include ../common/Makefile.common
