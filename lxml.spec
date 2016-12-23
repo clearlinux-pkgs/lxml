@@ -4,7 +4,7 @@
 #
 Name     : lxml
 Version  : 3.6.1
-Release  : 25
+Release  : 26
 URL      : https://pypi.python.org/packages/09/f3/c41293bc181b8c727cc485339dc57af653dae6d17d4c8dbf0cbac53cb4aa/lxml-3.6.1.tar.gz
 Source0  : https://pypi.python.org/packages/09/f3/c41293bc181b8c727cc485339dc57af653dae6d17d4c8dbf0cbac53cb4aa/lxml-3.6.1.tar.gz
 Summary  : Powerful and Pythonic XML processing library combining libxml2/libxslt with the ElementTree API.
