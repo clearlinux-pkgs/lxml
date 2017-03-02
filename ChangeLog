@@ -2,6 +2,102 @@
 lxml changelog
 ==============
 
+3.7.3 (2017-02-18)
+==================
+
+Bugs fixed
+----------
+
+* GH#218 was ineffective in Python 3.
+
+* GH#222: ``lxml.html.submit_form()`` failed in Python 3.
+  Patch by Jakub Wilk.
+
+
+3.7.2 (2017-01-08)
+==================
+
+* GH#220: ``xmlfile`` allows switching output methods at an element level.
+  Patch by Burak Arslan.
+
+Bugs fixed
+----------
+
+* Work around installation problems in recent Python 2.7 versions
+  due to FTP download failures.
+
+* GH#219: ``xmlfile.element()`` was not properly quoting attribute values.
+  Patch by Burak Arslan.
+
+* GH#218: ``xmlfile.element()`` was not properly escaping text content of
+  script/style tags.  Patch by Burak Arslan.
+
+
+3.7.1 (2016-12-23)
+==================
+
+* No source changes, issued only to solve problems with the
+  binary packages released for 3.7.0.
+
+
+3.7.0 (2016-12-10)
+==================
+
+Features added
+--------------
+
+* GH#217: ``XMLSyntaxError`` now behaves more like its ``SyntaxError``
+  baseclass.  Patch by Philipp A.
+
+* GH#216: ``HTMLParser()`` now supports the same ``collect_ids`` parameter
+  as ``XMLParser()``.  Patch by Burak Arslan.
+
+* GH#210: Allow specifying a serialisation method in ``xmlfile.write()``.
+  Patch by Burak Arslan.
+
+* GH#203: New option ``default_doctype`` in ``HTMLParser`` that allows
+  disabling the automatic doctype creation.  Patch by Shadab Zafar.
+
+* GH#201: Calling the method ``.set('attrname')`` without value argument
+  (or ``None``) on HTML elements creates an attribute without value that
+  serialises like ``<div attrname></div>``.  Patch by Daniel Holth.
+
+* GH#197: Ignore form input fields in ``form_values()`` when they are
+  marked as ``disabled`` in HTML.  Patch by Kristian Klemon.
+
+Bugs fixed
+----------
+
+* GH#206: File name and line number were missing from XSLT error messages.
+  Patch by Marcus Brinkmann.
+
+Other changes
+-------------
+
+* Log entries no longer allow anything but plain string objects as message text
+  and file name.
+
+* ``zlib`` is included in the list of statically built libraries.
+
+
+3.6.4 (2016-08-20)
+==================
+
+* GH#204, LP#1614693: build fix for MacOS-X.
+
+
+3.6.3 (2016-08-18)
+==================
+
+* LP#1614603: change linker flags to build multi-linux wheels
+
+
+3.6.2 (2016-08-18)
+==================
+
+* LP#1614603: release without source changes to provide cleanly built Linux wheels
+
+
 3.6.1 (2016-07-24)
 ==================
 
@@ -1114,7 +1210,7 @@ Bugs fixed
   previously worked in 2.3.1.
 
 * Fixed parsing of some selectors in cssselect. Whitespace after combinators
-  ">", "+" and "~" is now correctly ignored. Previously is was parsed as
+  ">", "+" and "~" is now correctly ignored. Previously it was parsed as
   a descendant combinator. For example, "div> .foo" was parsed the same as
   "div>* .foo" instead of "div>.foo". Patch by Simon Sapin.
 
@@ -2811,7 +2907,7 @@ Features added
 
 * ``ElementMaker`` XML generator by Fredrik Lundh in ``lxml.builder.E``
 
-* Support for pickeling ``objectify.ObjectifiedElement`` objects to XML
+* Support for pickling ``objectify.ObjectifiedElement`` objects to XML
 
 * ``update()`` method on Element.attrib
 
