@@ -6,7 +6,7 @@
 #
 Name     : lxml
 Version  : 3.7.3
-Release  : 29
+Release  : 30
 URL      : http://pypi.debian.net/lxml/lxml-3.7.3.tar.gz
 Source0  : http://pypi.debian.net/lxml/lxml-3.7.3.tar.gz
 Source99 : http://pypi.debian.net/lxml/lxml-3.7.3.tar.gz.asc
