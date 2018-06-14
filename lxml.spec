@@ -6,17 +6,20 @@
 #
 Name     : lxml
 Version  : 3.8.0
-Release  : 34
+Release  : 35
 URL      : http://pypi.debian.net/lxml/lxml-3.8.0.tar.gz
 Source0  : http://pypi.debian.net/lxml/lxml-3.8.0.tar.gz
 Source99 : http://pypi.debian.net/lxml/lxml-3.8.0.tar.gz.asc
 Summary  : Powerful and Pythonic XML processing library combining libxml2/libxslt with the ElementTree API.
 Group    : Development/Tools
 License  : BSD-3-Clause GPL-2.0
+Requires: lxml-python3
+Requires: lxml-license
 Requires: lxml-python
 Requires: Cython
 Requires: cssselect
 Requires: html5lib
+BuildRequires : libxml2-dev
 BuildRequires : libxslt-dev
 BuildRequires : pbr
 BuildRequires : pip
@@ -26,17 +29,38 @@ BuildRequires : setuptools
 BuildRequires : zlib-dev
 
 %description
-What is lxml?
-=============
-lxml is the most feature-rich and easy-to-use library for processing XML and HTML in the Python language.
-It's also very fast and memory friendly, just so you know.
+provides safe and convenient access to these libraries using the ElementTree
+        API.
+        
+        It extends the ElementTree API significantly to offer support for XPath,
+        RelaxNG, XML Schema, XSLT, C14N and much more.
+        
+        To contact the project, go to the `project home page
+
+%package license
+Summary: license components for the lxml package.
+Group: Default
+
+%description license
+license components for the lxml package.
+
 
 %package python
 Summary: python components for the lxml package.
 Group: Default
+Requires: lxml-python3
 
 %description python
 python components for the lxml package.
+
+
+%package python3
+Summary: python3 components for the lxml package.
+Group: Default
+Requires: python3-core
+
+%description python3
+python3 components for the lxml package.
 
 
 %prep
@@ -47,15 +71,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1496590283
-python2 setup.py build -b py2
+export SOURCE_DATE_EPOCH=1528989321
 python3 setup.py build -b py3
 
 %install
-export SOURCE_DATE_EPOCH=1496590283
 rm -rf %{buildroot}
-python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
-python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
+mkdir -p %{buildroot}/usr/share/doc/lxml
+cp LICENSES.txt %{buildroot}/usr/share/doc/lxml/LICENSES.txt
+cp doc/licenses/GPL.txt %{buildroot}/usr/share/doc/lxml/doc_licenses_GPL.txt
+python3 -tt setup.py build -b py3 install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
@@ -63,7 +87,14 @@ echo ----[ mark ]----
 %files
 %defattr(-,root,root,-)
 
+%files license
+%defattr(-,root,root,-)
+/usr/share/doc/lxml/LICENSES.txt
+/usr/share/doc/lxml/doc_licenses_GPL.txt
+
 %files python
 %defattr(-,root,root,-)
-/usr/lib/python2*/*
+
+%files python3
+%defattr(-,root,root,-)
 /usr/lib/python3*/*
