@@ -23,7 +23,7 @@ BuildRequires : libxml2-dev
 BuildRequires : libxslt-dev
 BuildRequires : pbr
 BuildRequires : pip
-BuildRequires : python-dev
+
 BuildRequires : python3-dev
 BuildRequires : setuptools
 BuildRequires : zlib-dev
