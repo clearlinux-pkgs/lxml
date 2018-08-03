@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x44A7D230CCC5497B (consulting@behnel.de)
 #
 Name     : lxml
-Version  : 4.2.3
-Release  : 42
-URL      : http://pypi.debian.net/lxml/lxml-4.2.3.tar.gz
-Source0  : http://pypi.debian.net/lxml/lxml-4.2.3.tar.gz
-Source99 : http://pypi.debian.net/lxml/lxml-4.2.3.tar.gz.asc
+Version  : 4.2.4
+Release  : 43
+URL      : https://files.pythonhosted.org/packages/ca/63/139b710671c1655aed3b20c1e6776118c62e9f9311152f4c6031e12a0554/lxml-4.2.4.tar.gz
+Source0  : https://files.pythonhosted.org/packages/ca/63/139b710671c1655aed3b20c1e6776118c62e9f9311152f4c6031e12a0554/lxml-4.2.4.tar.gz
+Source99 : https://files.pythonhosted.org/packages/ca/63/139b710671c1655aed3b20c1e6776118c62e9f9311152f4c6031e12a0554/lxml-4.2.4.tar.gz.asc
 Summary  : Powerful and Pythonic XML processing library combining libxml2/libxslt with the ElementTree API.
 Group    : Development/Tools
 License  : BSD-3-Clause GPL-2.0
@@ -19,12 +19,9 @@ Requires: lxml-python
 Requires: Cython
 Requires: cssselect
 Requires: html5lib
+BuildRequires : buildreq-distutils3
 BuildRequires : libxml2-dev
 BuildRequires : libxslt-dev
-BuildRequires : pbr
-BuildRequires : pip
-BuildRequires : python3-dev
-BuildRequires : setuptools
 BuildRequires : zlib-dev
 
 %description
@@ -63,14 +60,14 @@ python3 components for the lxml package.
 
 
 %prep
-%setup -q -n lxml-4.2.3
+%setup -q -n lxml-4.2.4
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1530367823
+export SOURCE_DATE_EPOCH=1533326180
 python3 setup.py build -b py3
 
 %install

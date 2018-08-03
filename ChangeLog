@@ -2,6 +2,23 @@
 lxml changelog
 ==============
 
+4.2.4 (2018-08-03)
+==================
+
+Features added
+--------------
+
+* GH#259: Allow using ``pkg-config`` for build configuration.
+  Patch by Patrick Griffis.
+
+Bugs fixed
+----------
+
+* LP#1773749, GH#268: Crash when moving an element to another document with
+  ``Element.insert()``.
+  Patch by Alexander Weggerle.
+
+
 4.2.3 (2018-06-27)
 ==================
 
