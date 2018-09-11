@@ -1,8 +1,8 @@
 # This file contains recursive sources that require this package
-WebTest
 apache-ant
-apache-zookeeper
 cssselect
 geany
+gtk-doc
+libreoffice
 pyquery
 python-zeep
