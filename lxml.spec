@@ -4,15 +4,15 @@
 #
 Name     : lxml
 Version  : 4.2.5
-Release  : 44
+Release  : 46
 URL      : https://files.pythonhosted.org/packages/4b/20/ddf5eb3bd5c57582d2b4652b4bbcf8da301bdfe5d805cb94e805f4d7464d/lxml-4.2.5.tar.gz
 Source0  : https://files.pythonhosted.org/packages/4b/20/ddf5eb3bd5c57582d2b4652b4bbcf8da301bdfe5d805cb94e805f4d7464d/lxml-4.2.5.tar.gz
 Summary  : Powerful and Pythonic XML processing library combining libxml2/libxslt with the ElementTree API.
 Group    : Development/Tools
 License  : BSD-3-Clause GPL-2.0
-Requires: lxml-python3
-Requires: lxml-license
-Requires: lxml-python
+Requires: lxml-license = %{version}-%{release}
+Requires: lxml-python = %{version}-%{release}
+Requires: lxml-python3 = %{version}-%{release}
 Requires: Cython
 Requires: cssselect
 Requires: html5lib
@@ -41,7 +41,7 @@ license components for the lxml package.
 %package python
 Summary: python components for the lxml package.
 Group: Default
-Requires: lxml-python3
+Requires: lxml-python3 = %{version}-%{release}
 
 %description python
 python components for the lxml package.
@@ -64,15 +64,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1536636202
-python3 setup.py build -b py3
+export SOURCE_DATE_EPOCH=1541277224
+python3 setup.py build
 
 %install
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/lxml
-cp LICENSES.txt %{buildroot}/usr/share/doc/lxml/LICENSES.txt
-cp doc/licenses/GPL.txt %{buildroot}/usr/share/doc/lxml/doc_licenses_GPL.txt
-python3 -tt setup.py build -b py3 install --root=%{buildroot}
+mkdir -p %{buildroot}/usr/share/package-licenses/lxml
+cp LICENSES.txt %{buildroot}/usr/share/package-licenses/lxml/LICENSES.txt
+cp doc/licenses/GPL.txt %{buildroot}/usr/share/package-licenses/lxml/doc_licenses_GPL.txt
+python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
@@ -81,9 +81,9 @@ echo ----[ mark ]----
 %defattr(-,root,root,-)
 
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/lxml/LICENSES.txt
-/usr/share/doc/lxml/doc_licenses_GPL.txt
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/lxml/LICENSES.txt
+/usr/share/package-licenses/lxml/doc_licenses_GPL.txt
 
 %files python
 %defattr(-,root,root,-)
