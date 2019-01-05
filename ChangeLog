@@ -2,6 +2,33 @@
 lxml changelog
 ==============
 
+4.3.0 (2019-01-04)
+==================
+
+Features added
+--------------
+
+* The module ``lxml.sax`` is compiled using Cython in order to speed it up.
+
+* GH#267: ``lxml.sax.ElementTreeProducer`` now preserves the namespace prefixes.
+  If two prefixes point to the same URI, the first prefix in alphabetical order
+  is used.  Patch by Lennart Regebro.
+
+* Updated ISO-Schematron implementation to 2013 version (now MIT licensed)
+  and the corresponding schema to the 2016 version (with optional "properties").
+
+Other changes
+-------------
+
+* GH#270, GH#271: Support for Python 2.6 and 3.3 was removed.
+  Patch by hugovk.
+
+* The minimum dependency versions were raised to libxml2 2.9.2 and libxslt 1.1.27,
+  which were released in 2014 and 2012 respectively.
+
+* Built with Cython 0.29.2.
+
+
 4.2.6 (2019-01-02)
 ==================
 
@@ -3878,16 +3905,16 @@ Features added
   prefix to namespace URI mapping. This will create namespace
   prefix declarations on these elements and these prefixes will show up
   in XML serialization.
-  
+
 Bugs fixed
 ----------
- 
+
 * Killed yet another memory management related bug: trees created
   using newDoc would not get a libxml2-level dictionary, which caused
   problems when deallocating these documents later if they contained a
   node that came from a document with a dictionary.
 
-* Moving namespaced elements between documents was problematic as 
+* Moving namespaced elements between documents was problematic as
   references to the original document would remain. This has been fixed
   by applying xmlReconciliateNs() after each move operation.
 
