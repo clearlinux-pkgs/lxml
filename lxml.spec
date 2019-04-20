@@ -6,7 +6,7 @@
 #
 Name     : lxml
 Version  : 4.3.3
-Release  : 52
+Release  : 53
 URL      : https://lxml.de/files/lxml-4.3.3.tgz
 Source0  : https://lxml.de/files/lxml-4.3.3.tgz
 Source99 : https://lxml.de/files/lxml-4.3.3.tgz.asc
