@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x44A7D230CCC5497B (consulting@behnel.de)
 #
 Name     : lxml
-Version  : 4.3.3
-Release  : 54
-URL      : https://lxml.de/files/lxml-4.3.3.tgz
-Source0  : https://lxml.de/files/lxml-4.3.3.tgz
-Source99 : https://lxml.de/files/lxml-4.3.3.tgz.asc
+Version  : 4.4.0
+Release  : 55
+URL      : https://lxml.de/files/lxml-4.4.0.tgz
+Source0  : https://lxml.de/files/lxml-4.4.0.tgz
+Source99 : https://lxml.de/files/lxml-4.4.0.tgz.asc
 Summary  : Powerful and Pythonic XML processing library combining libxml2/libxslt with the ElementTree API.
 Group    : Development/Tools
 License  : BSD-3-Clause GPL-2.0
@@ -19,19 +19,19 @@ Requires: lxml-python3 = %{version}-%{release}
 Requires: Cython
 Requires: cssselect
 Requires: html5lib
+BuildRequires : Cython
 BuildRequires : buildreq-distutils3
+BuildRequires : cssselect
+BuildRequires : html5lib
 BuildRequires : libxml2-dev
 BuildRequires : libxslt-dev
 BuildRequires : zlib-dev
 
 %description
-provides safe and convenient access to these libraries using the ElementTree
-        API.
-        
-        It extends the ElementTree API significantly to offer support for XPath,
-        RelaxNG, XML Schema, XSLT, C14N and much more.
-        
-        To contact the project, go to the `project home page
+What is lxml?
+=============
+lxml is the most feature-rich and easy-to-use library for processing XML and HTML in the Python language.
+It's also very fast and memory friendly, just so you know.
 
 %package license
 Summary: license components for the lxml package.
@@ -60,15 +60,19 @@ python3 components for the lxml package.
 
 
 %prep
-%setup -q -n lxml-4.3.3
+%setup -q -n lxml-4.4.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1553634163
-export LDFLAGS="${LDFLAGS} -fno-lto"
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1564416340
+export GCC_IGNORE_WERROR=1
+export CFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$CFLAGS -fno-lto "
+export FFLAGS="$CFLAGS -fno-lto "
+export CXXFLAGS="$CXXFLAGS -fno-lto "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 

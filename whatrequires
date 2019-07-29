@@ -1,8 +1,15 @@
 # This file contains recursive sources that require this package
 apache-ant
+cinder
+conda
 cssselect
 geany
-gtk-doc
 inkscape
+keystoneauth1
+libreoffice
+nova
+oslo.vmware
+pypowervm
 pyquery
 python-zeep
+systemd
