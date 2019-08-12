@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x44A7D230CCC5497B (consulting@behnel.de)
 #
 Name     : lxml
-Version  : 4.4.0
-Release  : 55
-URL      : https://lxml.de/files/lxml-4.4.0.tgz
-Source0  : https://lxml.de/files/lxml-4.4.0.tgz
-Source99 : https://lxml.de/files/lxml-4.4.0.tgz.asc
+Version  : 4.4.1
+Release  : 56
+URL      : https://lxml.de/files/lxml-4.4.1.tgz
+Source0  : https://lxml.de/files/lxml-4.4.1.tgz
+Source1 : https://lxml.de/files/lxml-4.4.1.tgz.asc
 Summary  : Powerful and Pythonic XML processing library combining libxml2/libxslt with the ElementTree API.
 Group    : Development/Tools
 License  : BSD-3-Clause GPL-2.0
@@ -60,14 +60,15 @@ python3 components for the lxml package.
 
 
 %prep
-%setup -q -n lxml-4.4.0
+%setup -q -n lxml-4.4.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1564416340
+export SOURCE_DATE_EPOCH=1565585956
+# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$CFLAGS -fno-lto "
