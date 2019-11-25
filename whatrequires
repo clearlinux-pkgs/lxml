@@ -1,13 +1,14 @@
 # This file contains recursive sources that require this package
 apache-ant
+beautifulsoup4
 cinder
 conda
-cssselect
 fonttools
 geany
 inkscape
 keystoneauth1
 libreoffice
+networkx
 nova
 oslo.vmware
 pypowervm
