@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x44A7D230CCC5497B (consulting@behnel.de)
 #
 Name     : lxml
-Version  : 4.4.2
-Release  : 60
-URL      : https://lxml.de/files/lxml-4.4.2.tgz
-Source0  : https://lxml.de/files/lxml-4.4.2.tgz
-Source1 : https://lxml.de/files/lxml-4.4.2.tgz.asc
+Version  : 4.5.0
+Release  : 61
+URL      : https://lxml.de/files/lxml-4.5.0.tgz
+Source0  : https://lxml.de/files/lxml-4.5.0.tgz
+Source1  : https://lxml.de/files/lxml-4.5.0.tgz.asc
 Summary  : Powerful and Pythonic XML processing library combining libxml2/libxslt with the ElementTree API.
 Group    : Development/Tools
 License  : BSD-3-Clause GPL-2.0 ZPL-2.0
@@ -60,15 +60,15 @@ python3 components for the lxml package.
 
 
 %prep
-%setup -q -n lxml-4.4.2
-cd %{_builddir}/lxml-4.4.2
+%setup -q -n lxml-4.5.0
+cd %{_builddir}/lxml-4.5.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1574717798
+export SOURCE_DATE_EPOCH=1580313780
 # -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
@@ -82,9 +82,9 @@ python3 setup.py build
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/lxml
-cp %{_builddir}/lxml-4.4.2/LICENSES.txt %{buildroot}/usr/share/package-licenses/lxml/495ceccaff92184d795e03cfc863c015dc3dced9
-cp %{_builddir}/lxml-4.4.2/doc/licenses/GPL.txt %{buildroot}/usr/share/package-licenses/lxml/dfac199a7539a404407098a2541b9482279f690d
-cp %{_builddir}/lxml-4.4.2/doc/licenses/ZopePublicLicense.txt %{buildroot}/usr/share/package-licenses/lxml/f5da410083f6879cf7e02e0676ee164642b33524
+cp %{_builddir}/lxml-4.5.0/LICENSES.txt %{buildroot}/usr/share/package-licenses/lxml/495ceccaff92184d795e03cfc863c015dc3dced9
+cp %{_builddir}/lxml-4.5.0/doc/licenses/GPL.txt %{buildroot}/usr/share/package-licenses/lxml/dfac199a7539a404407098a2541b9482279f690d
+cp %{_builddir}/lxml-4.5.0/doc/licenses/ZopePublicLicense.txt %{buildroot}/usr/share/package-licenses/lxml/f5da410083f6879cf7e02e0676ee164642b33524
 python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
