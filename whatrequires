@@ -5,6 +5,8 @@ cinder
 conda
 fonttools
 geany
+heat
+html5lib
 inkscape
 keystoneauth1
 libreoffice
@@ -14,4 +16,5 @@ oslo.vmware
 pypowervm
 pyquery
 python-zeep
+swift
 systemd

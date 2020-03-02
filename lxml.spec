@@ -6,7 +6,7 @@
 #
 Name     : lxml
 Version  : 4.5.0
-Release  : 61
+Release  : 62
 URL      : https://lxml.de/files/lxml-4.5.0.tgz
 Source0  : https://lxml.de/files/lxml-4.5.0.tgz
 Source1  : https://lxml.de/files/lxml-4.5.0.tgz.asc
@@ -28,10 +28,60 @@ BuildRequires : libxslt-dev
 BuildRequires : zlib-dev
 
 %description
-What is lxml?
-=============
-lxml is the most feature-rich and easy-to-use library for processing XML and HTML in the Python language.
-It's also very fast and memory friendly, just so you know.
+lxml is a Pythonic, mature binding for the libxml2 and libxslt libraries.  It
+provides safe and convenient access to these libraries using the ElementTree
+API.
+
+It extends the ElementTree API significantly to offer support for XPath,
+RelaxNG, XML Schema, XSLT, C14N and much more.
+
+To contact the project, go to the `project home page
+<https://lxml.de/>`_ or see our bug tracker at
+https://launchpad.net/lxml
+
+In case you want to use the current in-development version of lxml,
+you can get it from the github repository at
+https://github.com/lxml/lxml .  Note that this requires Cython to
+build the sources, see the build instructions on the project home
+page.  To the same end, running ``easy_install lxml==dev`` will
+install lxml from
+https://github.com/lxml/lxml/tarball/master#egg=lxml-dev if you have
+an appropriate version of Cython installed.
+
+
+After an official release of a new stable series, bug fixes may become
+available at
+https://github.com/lxml/lxml/tree/lxml-4.5 .
+Running ``easy_install lxml==4.5bugfix`` will install
+the unreleased branch state from
+https://github.com/lxml/lxml/tarball/lxml-4.5#egg=lxml-4.5bugfix
+as soon as a maintenance branch has been established.  Note that this
+requires Cython to be installed at an appropriate version for the build.
+
+4.5.0 (2020-01-29)
+==================
+
+Features added
+--------------
+
+* A new function ``indent()`` was added to insert tail whitespace for pretty-printing
+  an XML tree.
+
+Bugs fixed
+----------
+
+* LP#1857794: Tail text of nodes that get removed from a document using item
+  deletion disappeared silently instead of sticking with the node that was removed.
+
+Other changes
+-------------
+
+* MacOS builds are 64-bit-only by default.
+  Set CFLAGS and LDFLAGS explicitly to override it.
+
+* Linux/MacOS Binary wheels now use libxml2 2.9.10 and libxslt 1.1.34.
+
+* LP#1840234: The package version number is now available as ``lxml.__version__``.
 
 %package license
 Summary: license components for the lxml package.
@@ -54,6 +104,7 @@ python components for the lxml package.
 Summary: python3 components for the lxml package.
 Group: Default
 Requires: python3-core
+Provides: pypi(lxml)
 
 %description python3
 python3 components for the lxml package.
@@ -68,7 +119,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1580313780
+export SOURCE_DATE_EPOCH=1583172874
 # -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
