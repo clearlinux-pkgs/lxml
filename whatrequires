@@ -1,17 +1,14 @@
 # This file contains recursive sources that require this package
 apache-ant
 beautifulsoup4
+cantarell-fonts
 cinder
 conda
-fonttools
 geany
-heat
 html5lib
-inkscape
 keystoneauth1
 libreoffice
 networkx
-nova
 oslo.vmware
 pypowervm
 pyquery

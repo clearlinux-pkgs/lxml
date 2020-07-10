@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x44A7D230CCC5497B (consulting@behnel.de)
 #
 Name     : lxml
-Version  : 4.5.0
-Release  : 62
-URL      : https://lxml.de/files/lxml-4.5.0.tgz
-Source0  : https://lxml.de/files/lxml-4.5.0.tgz
-Source1  : https://lxml.de/files/lxml-4.5.0.tgz.asc
+Version  : 4.5.2
+Release  : 63
+URL      : https://lxml.de/files/lxml-4.5.2.tgz
+Source0  : https://lxml.de/files/lxml-4.5.2.tgz
+Source1  : https://lxml.de/files/lxml-4.5.2.tgz.asc
 Summary  : Powerful and Pythonic XML processing library combining libxml2/libxslt with the ElementTree API.
 Group    : Development/Tools
 License  : BSD-3-Clause GPL-2.0 ZPL-2.0
@@ -28,60 +28,13 @@ BuildRequires : libxslt-dev
 BuildRequires : zlib-dev
 
 %description
-lxml is a Pythonic, mature binding for the libxml2 and libxslt libraries.  It
 provides safe and convenient access to these libraries using the ElementTree
-API.
-
-It extends the ElementTree API significantly to offer support for XPath,
-RelaxNG, XML Schema, XSLT, C14N and much more.
-
-To contact the project, go to the `project home page
-<https://lxml.de/>`_ or see our bug tracker at
-https://launchpad.net/lxml
-
-In case you want to use the current in-development version of lxml,
-you can get it from the github repository at
-https://github.com/lxml/lxml .  Note that this requires Cython to
-build the sources, see the build instructions on the project home
-page.  To the same end, running ``easy_install lxml==dev`` will
-install lxml from
-https://github.com/lxml/lxml/tarball/master#egg=lxml-dev if you have
-an appropriate version of Cython installed.
-
-
-After an official release of a new stable series, bug fixes may become
-available at
-https://github.com/lxml/lxml/tree/lxml-4.5 .
-Running ``easy_install lxml==4.5bugfix`` will install
-the unreleased branch state from
-https://github.com/lxml/lxml/tarball/lxml-4.5#egg=lxml-4.5bugfix
-as soon as a maintenance branch has been established.  Note that this
-requires Cython to be installed at an appropriate version for the build.
-
-4.5.0 (2020-01-29)
-==================
-
-Features added
---------------
-
-* A new function ``indent()`` was added to insert tail whitespace for pretty-printing
-  an XML tree.
-
-Bugs fixed
-----------
-
-* LP#1857794: Tail text of nodes that get removed from a document using item
-  deletion disappeared silently instead of sticking with the node that was removed.
-
-Other changes
--------------
-
-* MacOS builds are 64-bit-only by default.
-  Set CFLAGS and LDFLAGS explicitly to override it.
-
-* Linux/MacOS Binary wheels now use libxml2 2.9.10 and libxslt 1.1.34.
-
-* LP#1840234: The package version number is now available as ``lxml.__version__``.
+        API.
+        
+        It extends the ElementTree API significantly to offer support for XPath,
+        RelaxNG, XML Schema, XSLT, C14N and much more.
+        
+        To contact the project, go to the `project home page
 
 %package license
 Summary: license components for the lxml package.
@@ -111,20 +64,19 @@ python3 components for the lxml package.
 
 
 %prep
-%setup -q -n lxml-4.5.0
-cd %{_builddir}/lxml-4.5.0
+%setup -q -n lxml-4.5.2
+cd %{_builddir}/lxml-4.5.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1583172874
-# -Werror is for werrorists
+export SOURCE_DATE_EPOCH=1594407399
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
-export FCFLAGS="$CFLAGS -fno-lto "
-export FFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$FFLAGS -fno-lto "
+export FFLAGS="$FFLAGS -fno-lto "
 export CXXFLAGS="$CXXFLAGS -fno-lto "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
@@ -133,9 +85,9 @@ python3 setup.py build
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/lxml
-cp %{_builddir}/lxml-4.5.0/LICENSES.txt %{buildroot}/usr/share/package-licenses/lxml/495ceccaff92184d795e03cfc863c015dc3dced9
-cp %{_builddir}/lxml-4.5.0/doc/licenses/GPL.txt %{buildroot}/usr/share/package-licenses/lxml/dfac199a7539a404407098a2541b9482279f690d
-cp %{_builddir}/lxml-4.5.0/doc/licenses/ZopePublicLicense.txt %{buildroot}/usr/share/package-licenses/lxml/f5da410083f6879cf7e02e0676ee164642b33524
+cp %{_builddir}/lxml-4.5.2/LICENSES.txt %{buildroot}/usr/share/package-licenses/lxml/495ceccaff92184d795e03cfc863c015dc3dced9
+cp %{_builddir}/lxml-4.5.2/doc/licenses/GPL.txt %{buildroot}/usr/share/package-licenses/lxml/dfac199a7539a404407098a2541b9482279f690d
+cp %{_builddir}/lxml-4.5.2/doc/licenses/ZopePublicLicense.txt %{buildroot}/usr/share/package-licenses/lxml/f5da410083f6879cf7e02e0676ee164642b33524
 python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
