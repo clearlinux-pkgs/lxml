@@ -1,17 +1,13 @@
 # This file contains recursive sources that require this package
 apache-ant
 beautifulsoup4
+breeze-icons
 cantarell-fonts
-cinder
 conda
 geany
 html5lib
-keystoneauth1
 libreoffice
 networkx
-oslo.vmware
-pypowervm
 pyquery
 python-zeep
-swift
 systemd
