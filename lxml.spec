@@ -6,7 +6,7 @@
 #
 Name     : lxml
 Version  : 4.6.1
-Release  : 66
+Release  : 67
 URL      : https://lxml.de/files/lxml-4.6.1.tgz
 Source0  : https://lxml.de/files/lxml-4.6.1.tgz
 Source1  : https://lxml.de/files/lxml-4.6.1.tgz.asc
