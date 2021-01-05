@@ -8,6 +8,8 @@ geany
 html5lib
 libreoffice
 networkx
+pcs
 pyquery
 python-zeep
 systemd
+tifffile
