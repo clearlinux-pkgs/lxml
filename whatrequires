@@ -1,14 +1,18 @@
 # This file contains recursive sources that require this package
+ansible
 apache-ant
 beautifulsoup4
 breeze-icons
 cantarell-fonts
+complete
 conda
 geany
 html5lib
 libreoffice
-networkx
 pyquery
 python-zeep
+setuptools-rust
 systemd
 tifffile
+xmldiff
+yelp-tools
