@@ -5,13 +5,11 @@ beautifulsoup4
 breeze-icons
 cantarell-fonts
 complete
-conda
 geany
 html5lib
 libreoffice
 pyquery
 python-zeep
-setuptools-rust
 systemd
 tifffile
 xmldiff
