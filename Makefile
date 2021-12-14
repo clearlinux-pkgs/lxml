@@ -1,5 +1,5 @@
 PKG_NAME := lxml
-URL = https://files.pythonhosted.org/packages/e6/e1/34b3ab08553fe9a30e15b2bb9d1803a49d7d907dd9f245638839190042f0/lxml-4.6.5.tar.gz
+URL = https://files.pythonhosted.org/packages/84/74/4a97db45381316cd6e7d4b1eb707d7f60d38cb2985b5dfd7251a340404da/lxml-4.7.1.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
